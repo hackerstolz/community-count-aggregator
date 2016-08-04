@@ -3,7 +3,8 @@
 const FacebookReporter = require('./reporters/facebook'),
     MeetupReporter = require('./reporters/meetup'),
     TwitterReporter = require('./reporters/twitter'),
-    InstagramReporter = require('./reporters/instagram');
+    InstagramReporter = require('./reporters/instagram'),
+    FlickrReporter = require('./reporters/flickr');
 
 function CommunityCountAggregator() {
     const reports = [
@@ -15,6 +16,7 @@ function CommunityCountAggregator() {
         new TwitterReporter('Hackerstolz', 'https://mobile.twitter.com/hackerstolz'),
         new TwitterReporter('Gründerbar', 'https://mobile.twitter.com/gruenderbar'),
         new InstagramReporter('Hackerstolz', 'https://www.instagram.com/hackerstolz/'),
+        new FlickrReporter('Hackerstolz', 'https://www.flickr.com/photos/hackerstolz/'),
     ];
 
     this.report = () => {
