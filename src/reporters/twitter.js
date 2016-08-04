@@ -3,7 +3,7 @@
 const GenericHttpReporter = require('./genericHttpReporter');
 
 function TwitterReporter(name, url) {
-    const pattern = /class="UserProfileHeader-statCount">(\d+)/;
+    const pattern = /followers"><b class="UserProfileHeader-statCount">(\d+)/;
     const reporterName = 'twitterReporter';
 
     this.report = () => {
