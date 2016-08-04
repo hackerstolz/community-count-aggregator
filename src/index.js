@@ -1,7 +1,8 @@
 'use strict';
 
 const FacebookReporter = require('./reporters/facebook'),
-    MeetupReporter = require('./reporters/meetup');
+    MeetupReporter = require('./reporters/meetup'),
+    TwitterReporter = require('./reporters/twitter');
 
 function CommunityCountAggregator() {
     const reports = [
@@ -10,6 +11,8 @@ function CommunityCountAggregator() {
         new FacebookReporter('Hackschool', 'https://www.facebook.com/hackerschule'),
         new MeetupReporter('Mannheim', 'http://www.meetup.com/Hackschool-Mannheim/'),
         new MeetupReporter('Karlsruhe', 'http://www.meetup.com/Hackschool-KA/'),
+        new TwitterReporter('Hackerstolz', 'https://mobile.twitter.com/hackerstolz'),
+        new TwitterReporter('Gründerbar', 'https://mobile.twitter.com/gruenderbar'),
     ];
 
     this.report = () => {
@@ -18,7 +21,7 @@ function CommunityCountAggregator() {
         Promise.all(promises)
             .then(results => {
                 results.forEach(result => console.log(`${result.name}: ${result.count}`));
-            });
+            }, error => console.log(error));
     };
 }
 

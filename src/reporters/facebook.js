@@ -1,7 +1,6 @@
 'use strict';
 
-const request = require('request'),
-    GenericHttpReporter = require('./genericHttpReporter');
+const GenericHttpReporter = require('./genericHttpReporter');
 
 function FacebookReporter(name, url) {
     const pattern = /id="PagesLikesCountDOMID">.*?>(\d+)/;

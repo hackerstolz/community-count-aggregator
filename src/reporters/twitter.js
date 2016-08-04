@@ -2,12 +2,12 @@
 
 const GenericHttpReporter = require('./genericHttpReporter');
 
-function MeetupReporter(name, url) {
-    const pattern = /class="D_count">\((\d+)\)/;
-    const reporterName = 'meetupReporter';
+function TwitterReporter(name, url) {
+    const pattern = /class="UserProfileHeader-statCount">(\d+)/;
+    const reporterName = 'twitterReporter';
 
     this.report = () => {
-        const reporter = new GenericHttpReporter(pattern, `${url}members/`);
+        const reporter = new GenericHttpReporter(pattern, url);
 
         return reporter.getCount()
             .then(count => {
@@ -19,4 +19,4 @@ function MeetupReporter(name, url) {
     };
 }
 
-module.exports = MeetupReporter;
+module.exports = TwitterReporter;

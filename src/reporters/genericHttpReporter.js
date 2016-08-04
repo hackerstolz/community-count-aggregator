@@ -25,7 +25,7 @@ function GenericHttpReporter(pattern, url) {
 
                 const count = this.extractCount(body);
 
-                if (!count) {
+                if (!count || typeof count !== 'number') {
                     return reject(`Could not extract count for ${url}`);
                 }
 
