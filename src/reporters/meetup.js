@@ -3,12 +3,12 @@
 const request = require('request'),
     GenericHttpReporter = require('./genericHttpReporter');
 
-function FacebookReporter(name, url) {
-    const pattern = /id="PagesLikesCountDOMID">.*?>(\d+)/;
-    const reporterName = 'facebookReporter';
+function MeetupReporter(name, url) {
+    const pattern = /class="D_count">\((\d+)\)/;
+    const reporterName = 'meetupReporter';
 
     this.report = () => {
-        const reporter = new GenericHttpReporter(pattern, url);
+        const reporter = new GenericHttpReporter(pattern, `${url}members/`);
 
         return reporter.getCount()
             .then(count => {
@@ -20,4 +20,4 @@ function FacebookReporter(name, url) {
     };
 }
 
-module.exports = FacebookReporter;
+module.exports = MeetupReporter;
