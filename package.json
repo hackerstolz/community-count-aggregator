@@ -1,0 +1,24 @@
+{
+  "name": "community-count-aggregator",
+  "version": "1.0.0",
+  "description": "Very simple Node.js app to aggregate the count of social media followers.",
+  "main": "index.js",
+  "dependencies": {
+    "request": "2.74.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hackerstolz/community-count-aggregator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hackerstolz/community-count-aggregator/issues"
+  },
+  "homepage": "https://github.com/hackerstolz/community-count-aggregator#readme"
+}
