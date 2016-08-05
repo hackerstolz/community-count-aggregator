@@ -2,21 +2,10 @@
 
 const GenericHttpReporter = require('./genericHttpReporter');
 
-function MeetupReporter(name, url) {
-    const pattern = /class="D_count">\((\d+)\)/;
-    const reporterName = 'meetupReporter';
-
-    this.report = () => {
-        const reporter = new GenericHttpReporter(pattern, `${url}members/`);
-
-        return reporter.getCount()
-            .then(count => {
-                return {
-                    name: `${reporterName} (${name})`,
-                    count
-                }
-            })
-    };
+class MeetupReporter extends GenericHttpReporter {
+    constructor(name, url) {
+        super(/class="D_count">\((\d+)\)/, `${url}members/`, name);
+    }
 }
 
 module.exports = MeetupReporter;

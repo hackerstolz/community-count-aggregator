@@ -2,21 +2,10 @@
 
 const GenericHttpReporter = require('./genericHttpReporter');
 
-function InstagramReporter(name, url) {
-    const pattern = /followed_by": \{"count": (\d+)/;
-    const reporterName = 'instagramReporter';
-
-    this.report = () => {
-        const reporter = new GenericHttpReporter(pattern, url);
-
-        return reporter.getCount()
-            .then(count => {
-                return {
-                    name: `${reporterName} (${name})`,
-                    count
-                }
-            })
-    };
+class InstagramReporter extends GenericHttpReporter {
+    constructor(name, url) {
+        super(/followed_by": \{"count": (\d+)/, url, name);
+    }
 }
 
 module.exports = InstagramReporter;

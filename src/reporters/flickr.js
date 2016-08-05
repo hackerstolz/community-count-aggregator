@@ -2,21 +2,10 @@
 
 const GenericHttpReporter = require('./genericHttpReporter');
 
-function FlickrReporter(name, url) {
-    const pattern = /(\d+) Follower/;
-    const reporterName = 'flickrReporter';
-
-    this.report = () => {
-        const reporter = new GenericHttpReporter(pattern, url);
-
-        return reporter.getCount()
-            .then(count => {
-                return {
-                    name: `${reporterName} (${name})`,
-                    count
-                }
-            })
-    };
+class FlickrReporter extends GenericHttpReporter {
+    constructor(name, url) {
+        super(/(\d+) Follower/, url, name);
+    }
 }
 
 module.exports = FlickrReporter;

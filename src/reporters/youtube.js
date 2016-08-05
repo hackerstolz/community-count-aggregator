@@ -2,21 +2,10 @@
 
 const GenericHttpReporter = require('./genericHttpReporter');
 
-function YoutubeReporter(name, url) {
-    const pattern = /aria-label="(\d+) subscribers"/;
-    const reporterName = 'youtubeReporter';
-
-    this.report = () => {
-        const reporter = new GenericHttpReporter(pattern, url);
-
-        return reporter.getCount()
-            .then(count => {
-                return {
-                    name: `${reporterName} (${name})`,
-                    count
-                }
-            })
-    };
+class YoutubeReporter extends GenericHttpReporter {
+    constructor(name, url) {
+        super(/aria-label="(\d+) subscribers"/, url, name);
+    }
 }
 
 module.exports = YoutubeReporter;

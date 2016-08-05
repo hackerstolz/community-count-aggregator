@@ -2,21 +2,10 @@
 
 const GenericHttpReporter = require('./genericHttpReporter');
 
-function TwitterReporter(name, url) {
-    const pattern = /followers"><b class="UserProfileHeader-statCount">(\d+)/;
-    const reporterName = 'twitterReporter';
-
-    this.report = () => {
-        const reporter = new GenericHttpReporter(pattern, url);
-
-        return reporter.getCount()
-            .then(count => {
-                return {
-                    name: `${reporterName} (${name})`,
-                    count
-                }
-            })
-    };
+class TwitterReporter extends GenericHttpReporter {
+    constructor(name, url) {
+        super(/followers"><b class="UserProfileHeader-statCount">(\d+)/, url, name);
+    }
 }
 
 module.exports = TwitterReporter;
