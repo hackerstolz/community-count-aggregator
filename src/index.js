@@ -15,6 +15,7 @@ function CommunityCountAggregator() {
         new FacebookReporter('Hackschool', 'https://www.facebook.com/hackerschule'),
         new MeetupReporter('Mannheim', 'http://www.meetup.com/Hackschool-Mannheim/'),
         new MeetupReporter('Karlsruhe', 'http://www.meetup.com/Hackschool-KA/'),
+        new MeetupReporter('Berlin', 'http://www.meetup.com/Hackschool-Berlin/'),
         new TwitterReporter('Hackerstolz', 'https://mobile.twitter.com/hackerstolz'),
         new TwitterReporter('Gründerbar', 'https://mobile.twitter.com/gruenderbar'),
         new InstagramReporter('Hackerstolz', 'https://www.instagram.com/hackerstolz/'),
