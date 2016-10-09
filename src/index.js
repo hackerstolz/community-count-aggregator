@@ -10,18 +10,18 @@ const FacebookReporter = require('./reporters/facebook'),
 
 function CommunityCountAggregator() {
     const reports = [
-        new FacebookReporter('Gründerbar', 'https://www.facebook.com/gruenderbar.de'),
         new FacebookReporter('Hackerstolz', 'https://www.facebook.com/hackerstolz'),
         new FacebookReporter('Hackschool', 'https://www.facebook.com/hackerschule'),
-        new MeetupReporter('Mannheim', 'http://www.meetup.com/Hackschool-Mannheim/'),
-        new MeetupReporter('Karlsruhe', 'http://www.meetup.com/Hackschool-KA/'),
-        new MeetupReporter('Berlin', 'http://www.meetup.com/Hackschool-Berlin/'),
+        new FacebookReporter('Gründerbar', 'https://www.facebook.com/gruenderbar.de'),
         new TwitterReporter('Hackerstolz', 'https://mobile.twitter.com/hackerstolz'),
         new TwitterReporter('Gründerbar', 'https://mobile.twitter.com/gruenderbar'),
         new InstagramReporter('Hackerstolz', 'https://www.instagram.com/hackerstolz/'),
-        new FlickrReporter('Hackerstolz', 'https://www.flickr.com/photos/hackerstolz/'),
         new YoutubeReporter('Hackerstolz', 'https://www.youtube.com/channel/UCr_8g-nYnWR0GojfAvLsS1g'),
+        new FlickrReporter('Hackerstolz', 'https://www.flickr.com/photos/hackerstolz/'),
         new SlackReporter('Hackerstolz Community', 'http://community.hackerstolz.de/'),
+        new MeetupReporter('Mannheim', 'http://www.meetup.com/Hackschool-Mannheim/'),
+        new MeetupReporter('Karlsruhe', 'http://www.meetup.com/Hackschool-KA/'),
+        new MeetupReporter('Berlin', 'http://www.meetup.com/Hackschool-Berlin/'),
     ];
 
     this.report = () => {
