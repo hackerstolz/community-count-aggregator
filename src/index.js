@@ -22,6 +22,7 @@ function CommunityCountAggregator() {
         new MeetupReporter('Mannheim', 'http://www.meetup.com/Hackschool-Mannheim/'),
         new MeetupReporter('Karlsruhe', 'http://www.meetup.com/Hackschool-KA/'),
         new MeetupReporter('Berlin', 'http://www.meetup.com/Hackschool-Berlin/'),
+        new MeetupReporter('Women', 'http://www.meetup.com/HackerstolzWomen/'),
     ];
 
     this.report = () => {
