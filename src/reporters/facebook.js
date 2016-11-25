@@ -4,7 +4,7 @@ const GenericHttpReporter = require('./genericHttpReporter');
 
 class FacebookReporter extends GenericHttpReporter {
     constructor(name, url) {
-        super(/id="PagesLikesCountDOMID">.*?>(\d+)/, url, name);
+        super(/id="PagesLikesCountDOMID">.*?>(\d+(,\d+)?)/, url, name);
     }
 }
 

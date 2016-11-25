@@ -57,7 +57,7 @@ class GenericHttpReporter {
             return;
         }
 
-        return parseInt(match[1], 10);
+        return parseInt(match[1].replace(',', ''), 10);
     }
 }
 
