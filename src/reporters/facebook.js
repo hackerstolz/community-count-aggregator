@@ -1,10 +1,30 @@
 'use strict';
 
-const GenericHttpReporter = require('./genericHttpReporter');
+const GenericReporter = require('./genericReporter');
+const FB = require('fb');
 
-class FacebookReporter extends GenericHttpReporter {
-    constructor(name, url) {
-        super(/id="PagesLikesCountDOMID">.*?>(\d+(,\d+)?)/, url, name);
+class FacebookReporter extends GenericReporter {
+    constructor(facebookAuthentication, name, pageId) {
+        super(name);
+
+        this.facebookAuthentication = facebookAuthentication;
+        this.pageId = pageId;
+    }
+
+    getCount() {
+        return new Promise((resolve, reject) => {
+            FB.setAccessToken(this.facebookAuthentication.accessToken);
+            FB.api(
+                `/${this.pageId}?fields=fan_count`,
+                response => {
+                    if (response && !response.error) {
+                        return resolve(response.fan_count);
+                    }
+
+                    reject(response.error);
+                }
+            );
+        });
     }
 }
 

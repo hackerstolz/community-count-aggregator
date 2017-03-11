@@ -3,12 +3,13 @@
 'use strict';
 
 const request = require('request');
+const GenericReporter = require('./genericReporter');
 
-class GenericHttpReporter {
+class GenericHttpReporter extends GenericReporter {
     constructor(pattern, url, name) {
+        super(name);
         this.pattern = pattern;
         this.url = url;
-        this.name = name;
         this.headers = {
             'Accept': 'text/html,application/xhtml+xml',
             'Accept-Language': 'en-US',
@@ -39,16 +40,6 @@ class GenericHttpReporter {
             });
         });
     };
-
-    report() {
-        return this.getCount()
-            .then(count => {
-                return {
-                    name: `${this.constructor.name} (${this.name})`,
-                    count
-                }
-            });
-    }
 
     extractCount(body) {
         const match = this.pattern.exec(body);
